@@ -1,0 +1,11 @@
+{% extends 'webapp/long.html' %}
+
+{% block content %}
+    <div id="proveedores">
+      {% for proveedor in proveedores %}
+        <div>
+            {{proveedor.RFC}}
+        </div>
+      {% endfor %}
+    </div>
+{% endblock %}

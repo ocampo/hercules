@@ -1,0 +1,54 @@
+{% extends 'webapp/long.html' %}
+
+{% block content %}
+    <div id="tabla3">
+      <a href="compras">
+        <div id=Back class="proveedor">
+          <p style="vertical-align:middle;"><br></p>
+        </div>
+      </a>
+      <br><br>
+
+      <div id="demo">
+    <table class="display">
+      <thead>
+      <tr>
+    <th>√</th>
+    <th>Producto</th>
+    <th>Cantidad</th>
+    <th>Unidad</th>
+    <th>Proveedor</th>
+    <th>Zona</th>
+    <th>Fecha de Requisición</th>
+  </tr>
+  </thead>
+  <tbody>
+      {{contenido | safe}}
+      </tbody>
+    </table>
+</div>
+      <script>
+        $(document).ready( function () {
+          $('.display').DataTable(
+            {
+              "order": [[ 0, "asc" ]],
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ renglones por página.",
+            "zeroRecords": "No encontramos registros - Lo siento :(",
+            "info": "Mostrando página _PAGE_ de _PAGES_",
+            "infoEmpty": "No hay registros",
+            "search":    "Búsqueda:",
+            "infoFiltered": "(filtro aplicado de un total de _MAX_ entrada)",
+            "paginate": {
+      "first":      "Primero",
+      "last":       "Último",
+      "next":       ">",
+      "previous":   "<"
+  },
+        }
+    }
+          );
+        } );
+      </script>
+    </div>
+{% endblock %}

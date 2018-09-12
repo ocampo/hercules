@@ -1,0 +1,17 @@
+{% load static %}
+
+<html>
+<head>
+  <link rel="stylesheet" href="{% static 'webapp/main.css' %}">
+  <link rel="stylesheet" href="{% static 'webapp/search.css' %}">
+</head>
+<body>
+  <div id="container">
+    {% block content %}
+    {% endblock %}
+    <div id="title">
+      Sistema de Inventarios de Hércules
+    </div>
+  </div>
+</body>
+</html>

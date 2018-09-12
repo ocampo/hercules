@@ -1,0 +1,20 @@
+{% extends 'webapp/long.html' %}
+
+{% block content %}
+    <div id="proveedores">
+      <a href="nuevar">
+        <div id=Back class="proveedor">
+          <p style="vertical-align:middle;"><br></p>
+        </div>
+      </a>
+      {% for elemento in contenido %}
+        <a href="c-productos?zona={{zona}}&nivel=2&proveedor={{elemento.id}}">
+          <div style="vertical-align:middle;" class="proveedor">
+            <p style="margin:20px">
+                {{elemento.nombre_corto}}
+            </p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+{% endblock %}
