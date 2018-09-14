@@ -18,9 +18,11 @@ def generador_lista(lista):
                 proveedor = Proveedor.objects.get(pk=item.proveedor).nombre_corto
                 zona = Zona.objects.get(pk=item.zona)
                 if item.done == True:
-                    check = '<input type="checkbox" name="done" checked />'
+                    check = '<input type="checkbox" name="done" checked onclick=\
+                    "return update_lista('+str(item.id)+','+str(item.done)+');"/>'
                 else:
-                    check = '<input type="checkbox" name="done" />'
+                    check = '<input type="checkbox" name="done" onclick=\
+                    "return update_lista('+str(item.id)+','+str(item.done)+');"/>'
                 output = output+\
                 """<tr>
                 <td>%s</td>
@@ -29,6 +31,5 @@ def generador_lista(lista):
                 <td>%s</td>
                 <td>%s</td>
                 <td>%s</td>
-                <td>%s</td>
-            </tr>""" % (check,str(item.producto),str(item.cantidad),str(item.unidad),str(proveedor),str(zona),str(item.fecha_de_solicitud.strftime("%d/%m/%y %l:%M%p")))
+            </tr>""" % (check,str(item.producto),str(item.cantidad),str(item.unidad),str(proveedor),str(item.fecha_de_solicitud.strftime("%d/%m/%y %l:%M%p")))
     return output

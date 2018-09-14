@@ -18,7 +18,6 @@
     <th>Cantidad</th>
     <th>Unidad</th>
     <th>Proveedor</th>
-    <th>Zona</th>
     <th>Fecha de Requisición</th>
   </tr>
   </thead>
@@ -31,7 +30,9 @@
         $(document).ready( function () {
           $('.display').DataTable(
             {
-              "order": [[ 0, "asc" ]],
+              "aoColumns": [
+            { "orderDataType": "dom-text",type:"string"},null,null,null,null,null
+          ],
         "language": {
             "lengthMenu": "Mostrar _MENU_ renglones por página.",
             "zeroRecords": "No encontramos registros - Lo siento :(",
@@ -49,6 +50,23 @@
     }
           );
         } );
+
+        $.fn.dataTableExt.afnSortData['dom-checkbox'] = function(oSettings, iColumn) {
+            var aData = [];
+            $('td:eq(' + iColumn + ') input', oSettings.oApi._fnGetTrNodes(oSettings)).each(function() {
+              aData.push(this.checked == false ? "1" : "0");
+            });
+            return aData;
+          }
+
+        function update_lista(id,status){
+          if (status == true) {
+            var otra=0;
+          }
+          else {
+            var otra = 1;
+          }
+        }
       </script>
     </div>
 {% endblock %}
