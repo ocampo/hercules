@@ -1,0 +1,7 @@
+*.pyc
+*~
+__pycache__
+hercules
+/static
+.DS_Store
+
