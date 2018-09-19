@@ -29,7 +29,7 @@
       <script>
         $(document).ready( function () {
           $('.display').DataTable(
-            {
+            {"aaSorting": [[0,'desc']],
               "aoColumns": [
             { "orderDataType": "dom-text",type:"string"},null,null,null,null,null
           ],
@@ -51,13 +51,6 @@
           );
         } );
 
-        $.fn.dataTableExt.afnSortData['dom-checkbox'] = function(oSettings, iColumn) {
-            var aData = [];
-            $('td:eq(' + iColumn + ') input', oSettings.oApi._fnGetTrNodes(oSettings)).each(function() {
-              aData.push(this.checked == false ? "1" : "0");
-            });
-            return aData;
-          }
 
         function update_lista(id,status){
           if (status == true) {

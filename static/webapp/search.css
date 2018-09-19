@@ -1,0 +1,31 @@
+.proveedor{
+  width:130px;
+  height:70px;
+  display: inline-table;
+  text-align: center;
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+.producto{
+  width:130px;
+  height:70px;
+  display: inline-table;
+  text-align: center;
+  border: solid;
+  border-width: 2px;
+  border-color: black;
+  margin: 10px;
+  vertical-align: middle;
+}
+
+#Back{
+  width: 130px;
+  height: 70px;
+  background-size: 130px 85px;
+  background-position: 0px 0px;
+  background-image: url('img/back.svg');
+}
