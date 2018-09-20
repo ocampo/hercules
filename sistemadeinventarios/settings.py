@@ -25,7 +25,7 @@ SECRET_KEY = '(5djwoo9cxbta$%%1cp*7*te07$xkam-!@i3ivk0mwzo72f9y$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com','localhost']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'sistemadeinventarios.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', ''),
-        'USER': os.environ.get('DB_USER', ''),
-        'PASSWORD': os.environ.get('DB_PASS', ''),
+        'NAME': 'devel',
+        'USER': 'webapp',
+        'PASSWORD': '6453KriptOn',
         'HOST': 'localhost',
         'PORT': '5432',
     }
