@@ -80,8 +80,8 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME', ''),
         'USER': os.environ.get('DB_USER', ''),
         'PASSWORD': os.environ.get('DB_PASS', ''),
-        'HOST': 'iohercules.postgres.pythonanywhere-services.com',
-        'PORT': '10667',
+        'HOST': 'iohercules-904.postgres.pythonanywhere-services.com',
+        'PORT': 10904,
     }
 }
 
