@@ -19,7 +19,7 @@ class Insumo(models.Model):
 
 class Producto(models.Model):
     usuario = models.ForeignKey('auth.User',on_delete=models.PROTECT)
-    nombre = models.CharField(max_length=300)
+    nombre = models.CharField(max_length=300,default='no se registró')
     unidad = models.ForeignKey('Unidad',on_delete=models.PROTECT)
     precio_por_unidad = models.FloatField()
     min_stock = models.IntegerField(null=True)
