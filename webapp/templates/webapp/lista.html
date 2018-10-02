@@ -53,13 +53,27 @@
 
 
         function update_lista(id,status){
-          if (status == true) {
-            var otra=0;
+          var csrftoken = getCookie('csrftoken');
+          var headers = new Headers();
+          headers.append('X-CSRFToken', csrftoken);
+            $.ajax({
+           url: 'ajax',
+           method: 'POST',
+           headers: headers,
+           credentials: 'include',
+           data: {
+             'proceso': 'updatelista',
+             'id':id,
+             'done': status,
+           },
+           dataType: 'json',
+           success: function () {
+             alert("listo!");
+           }
+          });
           }
-          else {
-            var otra = 1;
-          }
-        }
+
+
       </script>
     </div>
 {% endblock %}

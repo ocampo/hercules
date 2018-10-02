@@ -19,10 +19,10 @@ def generador_lista(lista):
                 zona = Zona.objects.get(pk=item.zona)
                 if item.done == True:
                     check = '<input type="checkbox" name="done" checked onclick=\
-                    "return update_lista('+str(item.id)+','+str(item.done)+');"/>'
+                    "return update_lista('+str(item.id)+','+str(item.done).lower() +');"/>'
                 else:
                     check = '<input type="checkbox" name="done" onclick=\
-                    "return update_lista('+str(item.id)+','+str(item.done)+');"/>'
+                    "return update_lista('+str(item.id)+','+str(item.done).lower() +');"/>'
                 output = output+\
                 """<tr>
                 <td>%s</td>

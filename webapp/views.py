@@ -68,13 +68,10 @@ def ajax(request):
     if proceso == "agregaralista":
         proceso = request.GET.get("proceso")
         proveedor = request.GET.get("proveedor")
-        print("va")
-        print(proveedor)
         p_id = Producto.objects.filter(proveedor_id=proveedor).values('proveedor_id')[0]['proveedor_id']
         zona = Proveedor.objects.filter(id=p_id).values('zone_id')[0]['zone_id']
         producto = request.GET.get("producto")
         unidad = request.GET.get("unidad")
-        print("va la unidad %c "% unidad)
         unidad = Unidad.objects.get(pk=int(unidad)).nombre
         numero = request.GET.get("numero")
         nuevo = Lista.objects.create(proveedor=proveedor,zona=zona,pagado=False,producto=producto,cantidad=numero,unidad=unidad)
@@ -82,6 +79,9 @@ def ajax(request):
         print("se agregó a lista")
         return JsonResponse({"success":True})
     elif proceso == "updatelista":
-        done = request.POST.get("done")
+        print("va el bool")
+        print(bool(request.POST.get("done")))
+        done = not bool(request.POST.get("done"))
         list_id = request.POST.get("id")
         Lista.objects.filter(pk=list_id).update(done=done)
+    return(render(request,'webapp/lista.html',{}))

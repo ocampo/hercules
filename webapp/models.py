@@ -22,8 +22,8 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=300)
     unidad = models.ForeignKey('Unidad',on_delete=models.PROTECT)
     precio_por_unidad = models.FloatField()
-    min_stock = models.IntegerField()
-    max_stock = models.IntegerField()
+    min_stock = models.IntegerField(null=True)
+    max_stock = models.IntegerField(null=True)
     area = models.ForeignKey('Area',on_delete=models.PROTECT)
     active = models.BooleanField(default=True)
     proveedor = models.ForeignKey('Proveedor',on_delete=models.PROTECT)
@@ -31,7 +31,7 @@ class Producto(models.Model):
             default=timezone.now)
     fecha_de_actualizacion = models.DateTimeField(
             default=timezone.now)
-    status = models.IntegerField()
+    status = models.IntegerField(default=True)
     relacion_insumo = models.ForeignKey('Insumo',on_delete=models.PROTECT,null=True)
 
     def actualizar(self):
@@ -62,7 +62,8 @@ class Proveedor(models.Model):
         verbose_name_plural = "Proveedores"
     nombre = models.CharField(max_length=200)
     nombre_corto = models.CharField(max_length=60,default='')
-    zone = models.ForeignKey('Zona',on_delete=models.PROTECT,default=0)
+    telefono = models.CharField(max_length=50)
+    zona = models.ForeignKey('Zona',on_delete=models.PROTECT,default=0)
     RFC = models.CharField(max_length=13)
     calificacion = models.FloatField(blank=True)
     notas = models.TextField(blank=True)
