@@ -24,6 +24,7 @@ class Producto(models.Model):
     precio_por_unidad = models.FloatField()
     min_stock = models.IntegerField(blank=True,null=True)
     max_stock = models.IntegerField(blank=True,null=True)
+    IVA = models.BooleanField(default=True)
     area = models.ForeignKey('Area',on_delete=models.PROTECT)
     active = models.BooleanField(default=True)
     proveedor = models.ForeignKey('Proveedor',on_delete=models.PROTECT)
